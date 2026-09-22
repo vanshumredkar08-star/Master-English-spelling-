@@ -1,196 +1,1371 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Master English Spelling</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Master English Spelling - Vocabulary, Dictionary, Spelling Practice and Sentence Practice">
+<meta name="keywords" content="English spelling, vocabulary, dictionary, spelling practice, sentence practice, English learning">
+<meta name="author" content="Vansh Umredkar">
+<meta name="theme-color" content="#c99618">
+<title>Master English Spelling</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+:root{
+    --gold:#c99518;
+    --gold-dark:#9f7610;
+    --cream:#fbf8ef;
+    --white:#ffffff;
+    --black:#111111;
+    --gray:#666;
+    --light:#f4f0e4;
+    --blue:#dff3f8;
+}
+
+body{
+    font-family:Georgia,"Times New Roman",serif;
+    background:var(--cream);
+    color:var(--black);
+    overflow-x:hidden;
+}
+
+button,input{
+    font-family:inherit;
+}
+
+header{
+    width:100%;
+    background:rgba(255,255,255,.96);
+    position:sticky;
+    top:0;
+    z-index:1000;
+    border-bottom:1px solid #eee;
+    backdrop-filter:blur(10px);
+}
+
+.navbar{
+    max-width:1250px;
+    margin:auto;
+    min-height:82px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 35px;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.logo-icon{
+    width:38px;
+    height:38px;
+    display:grid;
+    place-items:center;
+    color:var(--gold);
+    font-size:31px;
+}
+
+.nav-links{
+    display:flex;
+    gap:42px;
+    align-items:center;
+}
+
+.nav-links a{
+    text-decoration:none;
+    color:#222;
+    font-size:16px;
+    transition:.3s;
+}
+
+.nav-links a:hover{
+    color:var(--gold);
+}
+
+.nav-actions{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.nav-btn{
+    border:0;
+    background:none;
+    font-size:21px;
+    cursor:pointer;
+}
+
+.page{
+    min-height:100vh;
+}
+
+.hero{
+    min-height:650px;
+    max-width:1250px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1.05fr .95fr;
+    align-items:center;
+    gap:35px;
+    padding:70px 45px;
+}
+
+.hero-label{
+    font-size:14px;
+    letter-spacing:4px;
+    color:#777;
+    margin-bottom:25px;
+    text-transform:uppercase;
+}
+
+.hero h1{
+    font-size:76px;
+    line-height:.98;
+    font-weight:500;
+    margin-bottom:25px;
+}
+
+.hero h1 span{
+    font-style:italic;
+    color:#333;
+}
+
+.hero p{
+    max-width:680px;
+    font-size:18px;
+    line-height:1.7;
+    color:#666;
+    margin-bottom:32px;
+}
+
+.primary-btn{
+    background:var(--gold);
+    color:white;
+    border:0;
+    padding:18px 30px;
+    border-radius:5px;
+    font-size:16px;
+    cursor:pointer;
+    transition:.3s;
+    box-shadow:0 8px 20px rgba(201,149,24,.22);
+}
+
+.primary-btn:hover{
+    background:var(--gold-dark);
+    transform:translateY(-3px);
+}
+
+.hero-visual{
+    height:500px;
+    position:relative;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+
+.circle{
+    width:440px;
+    height:440px;
+    border:1px solid #ddd;
+    border-radius:50%;
+    position:relative;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.circle::before{
+    content:"";
+    width:290px;
+    height:290px;
+    border:1px solid #e3e3e3;
+    border-radius:50%;
+    position:absolute;
+}
+
+.letter{
+    width:140px;
+    height:140px;
+    background:var(--gold);
+    color:white;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    font-size:100px;
+    z-index:2;
+    box-shadow:0 20px 45px rgba(0,0,0,.13);
+}
+
+.floating{
+    position:absolute;
+    background:white;
+    padding:25px 30px;
+    border-radius:10px;
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+    font-size:25px;
+}
+
+.f1{top:55px;left:55px}
+.f2{right:0;top:150px}
+.f3{bottom:50px;left:90px}
+
+.intro-section{
+    padding:90px 40px;
+    background:#f4f0e4;
+    text-align:center;
+}
+
+.section-title{
+    font-size:48px;
+    font-weight:500;
+    margin-bottom:20px;
+}
+
+.section-text{
+    max-width:720px;
+    margin:auto;
+    color:#666;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.feature-grid{
+    max-width:1150px;
+    margin:55px auto 0;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.feature-card{
+    background:white;
+    padding:38px 28px;
+    border-radius:16px;
+    box-shadow:0 10px 35px rgba(0,0,0,.07);
+    transition:.4s;
+}
+
+.feature-card:hover{
+    transform:translateY(-8px);
+}
+
+.feature-icon{
+    font-size:45px;
+    margin-bottom:18px;
+}
+
+.feature-card h3{
+    font-size:24px;
+    margin-bottom:12px;
+}
+
+.feature-card p{
+    color:#666;
+    line-height:1.7;
+}
+
+.growth{
+    padding:90px 40px;
+    background:white;
+}
+
+.growth-container{
+    max-width:1150px;
+    margin:auto;
+}
+
+.growth-title{
+    font-size:50px;
+    margin-bottom:45px;
+    font-weight:500;
+}
+
+.growth-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:25px;
+}
+
+.growth-card{
+    min-height:260px;
+    border:1px solid #ddd;
+    border-radius:20px;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    background:#fff;
+}
+
+.growth-number{
+    font-size:62px;
+    color:var(--gold);
+    margin-bottom:15px;
+}
+
+.growth-card h3{
+    font-size:22px;
+    font-weight:500;
+}
+
+.learning-page{
+    display:none;
+    min-height:100vh;
+    background:var(--cream);
+}
+
+.learning-header{
+    max-width:1200px;
+    margin:auto;
+    padding:55px 35px 20px;
+}
+
+.back-btn{
+    border:0;
+    background:none;
+    color:#777;
+    cursor:pointer;
+    font-size:16px;
+    margin-bottom:30px;
+}
+
+.learning-header h1{
+    font-size:58px;
+    font-weight:500;
+    margin-bottom:15px;
+}
+
+.learning-header p{
+    color:#666;
+    font-size:17px;
+}
+
+.learning-grid{
+    max-width:1200px;
+    margin:45px auto 80px;
+    padding:0 35px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:30px;
+    perspective:1200px;
+}
+
+.learning-card{
+    min-height:380px;
+    border-radius:24px;
+    padding:40px 30px;
+    background:white;
+    box-shadow:0 20px 50px rgba(0,0,0,.1);
+    transform:translateY(100px) rotateX(12deg) scale(.94);
+    opacity:0;
+    animation:slide3d .9s forwards;
+    position:relative;
+    overflow:hidden;
+}
+
+.learning-card:nth-child(2){
+    animation-delay:.25s;
+}
+
+.learning-card:nth-child(3){
+    animation-delay:.5s;
+}
+
+@keyframes slide3d{
+    0%{
+        transform:translateY(100px) rotateX(12deg) rotateY(-12deg) scale(.94);
+        opacity:0;
+    }
+    70%{
+        transform:translateY(-8px) rotateX(0) rotateY(2deg) scale(1.01);
+        opacity:1;
+    }
+    100%{
+        transform:translateY(0) rotateX(0) rotateY(0) scale(1);
+        opacity:1;
+    }
+}
+
+.learning-card::before{
+    content:"";
+    position:absolute;
+    width:180px;
+    height:180px;
+    border-radius:50%;
+    background:rgba(201,149,24,.08);
+    right:-70px;
+    top:-70px;
+}
+
+.learning-icon{
+    font-size:58px;
+    margin-bottom:25px;
+}
+
+.learning-card h2{
+    font-size:30px;
+    margin-bottom:16px;
+}
+
+.learning-card p{
+    color:#666;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.card-btn{
+    padding:13px 22px;
+    border:0;
+    background:var(--gold);
+    color:white;
+    border-radius:6px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.card-btn:hover{
+    background:var(--gold-dark);
+    transform:translateY(-2px);
+}
+
+.practice-area{
+    display:none;
+    max-width:1100px;
+    margin:0 auto 80px;
+    padding:0 35px;
+}
+
+.practice-box{
+    background:white;
+    padding:45px;
+    border-radius:20px;
+    box-shadow:0 15px 45px rgba(0,0,0,.08);
+}
+
+.practice-box h2{
+    font-size:38px;
+    margin-bottom:15px;
+}
+
+.practice-box p{
+    color:#666;
+    line-height:1.7;
+    margin-bottom:25px;
+}
+
+.search-box{
+    display:flex;
+    gap:10px;
+    margin-bottom:25px;
+}
+
+.search-box input,
+.answer-input{
+    width:100%;
+    padding:15px 18px;
+    border:1px solid #ddd;
+    border-radius:8px;
+    font-size:16px;
+    outline:none;
+}
+
+.search-box input:focus,
+.answer-input:focus{
+    border-color:var(--gold);
+}
+
+.word-list{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.word-item{
+    border:1px solid #eee;
+    border-radius:10px;
+    padding:18px;
+    background:#fafafa;
+}
+
+.word-item strong{
+    font-size:20px;
+}
+
+.word-item span{
+    display:block;
+    color:#777;
+    margin-top:6px;
+}
+
+.question{
+    font-size:28px;
+    margin:25px 0;
+}
+
+.answer-result{
+    margin-top:20px;
+    padding:15px;
+    border-radius:8px;
+    display:none;
+}
+
+.correct{
+    background:#e4f7e8;
+    color:#207438;
+}
+
+.wrong{
+    background:#fde8e8;
+    color:#a52828;
+}
+
+.score-box{
+    margin-top:25px;
+    font-size:20px;
+}
+
+footer{
+    background:#fff;
+    padding:65px 35px 30px;
+    border-top:1px solid #eee;
+}
+
+.footer-container{
+    max-width:1150px;
+    margin:auto;
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:60px;
+}
+
+.footer-title{
+    font-size:30px;
+    margin-bottom:18px;
+}
+
+.footer-text{
+    color:#666;
+    line-height:1.8;
+    max-width:550px;
+}
+
+.founder{
+    margin-top:22px;
+    font-size:17px;
+    line-height:1.8;
+}
+
+.footer-bottom{
+    max-width:1150px;
+    margin:45px auto 0;
+    padding-top:20px;
+    border-top:1px solid #eee;
+    text-align:center;
+    color:#777;
+    font-size:14px;
+}
+
+@media(max-width:900px){
+    .nav-links{
+        gap:15px;
+    }
+
+    .hero{
+        grid-template-columns:1fr;
+        text-align:center;
+    }
+
+    .hero p{
+        margin-left:auto;
+        margin-right:auto;
+    }
+
+    .hero-visual{
+        height:400px;
+    }
+
+    .circle{
+        width:350px;
+        height:350px;
+    }
+
+    .feature-grid,
+    .growth-grid,
+    .learning-grid{
+        grid-template-columns:1fr;
+    }
+
+    .footer-container{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:600px){
+    .navbar{
+        padding:14px 18px;
+    }
+
+    .nav-links{
+        display:none;
+    }
+
+    .hero{
+        padding:55px 22px;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+    .hero-visual{
+        height:330px;
+    }
+
+    .circle{
+        width:280px;
+        height:280px;
+    }
+
+    .circle::before{
+        width:190px;
+        height:190px;
+    }
+
+    .letter{
+        width:95px;
+        height:95px;
+        font-size:65px;
+    }
+
+    .floating{
+        padding:15px 18px;
+        font-size:18px;
+    }
+
+    .f1{left:5px}
+    .f2{right:0}
+    .f3{left:30px}
+
+    .section-title,
+    .growth-title,
+    .learning-header h1{
+        font-size:38px;
+    }
+
+    .intro-section,
+    .growth{
+        padding:65px 22px;
+    }
+
+    .learning-grid,
+    .practice-area{
+        padding:0 20px;
+    }
+
+    .practice-box{
+        padding:25px;
+    }
+
+    .word-list{
+        grid-template-columns:1fr;
+    }
+
+    .footer-container{
+        gap:30px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-<header class="navbar">
-  <a class="brand" href="#home">
-    <span class="brand-mark">✦</span>
-    <span>Master<br>English</span>
-  </a>
+<div id="homePage" class="page">
 
-  <nav id="nav">
-    <a class="active" href="#home">Home</a>
-    <a href="#approach">Program List</a>
-    <a href="#practice">Book Online</a>
-    <a href="#support">Notifications</a>
-  </nav>
+<header>
+<nav class="navbar">
+<div class="logo">
+<div class="logo-icon">✦</div>
+<div>Master<br>English</div>
+</div>
 
-  <div class="nav-actions">
-    <button class="icon-btn" title="Notifications">🔔</button>
-    <button class="avatar">M</button>
-    <button class="bag">🛍</button>
-    <button class="menu-btn" id="menuBtn">☰</button>
-  </div>
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#programs">Programs</a>
+<a href="#growth">Growth</a>
+<a href="#about">About</a>
+</div>
+
+<div class="nav-actions">
+<button class="nav-btn">🔔</button>
+</div>
+</nav>
 </header>
 
-<main>
-  <section class="hero" id="home">
-    <div class="hero-content">
-      <div class="eyebrow">01 · ENGLISH LEARNING</div>
-      <h1>Master English<br><span>Spelling</span></h1>
-      <p>Unlock your full potential with structured exercises and real-time feedback designed for master-level proficiency.</p>
-      <a href="#practice" class="primary-btn">Start Learning <span>→</span></a>
-    </div>
-    <div class="hero-orbit">
-      <div class="orbit-card card-one">Aa</div>
-      <div class="orbit-card card-two">A B C</div>
-      <div class="orbit-card card-three">✓</div>
-      <div class="orbit-center">A</div>
-    </div>
-  </section>
+<main id="home">
 
-  <section class="section approach" id="approach">
-    <div class="section-heading">
-      <span class="small-label">OUR APPROACH</span>
-      <h2>Learn smarter.<br>Spell with confidence.</h2>
-      <p>Simple methods, memorable practice and instant feedback to make English easier.</p>
-    </div>
+<section class="hero">
 
-    <div class="feature-grid">
-      <article class="feature-card">
-        <div class="photo photo-1"></div>
-        <div class="card-body">
-          <span class="number">01</span>
-          <h3>Phonics Mastery</h3>
-          <p>We break down complex sounds into manageable components, helping you master the phonetic rules that govern English spelling.</p>
-        </div>
-      </article>
+<div>
+<div class="hero-label">English Learning Platform</div>
 
-      <article class="feature-card">
-        <div class="photo photo-2"></div>
-        <div class="card-body">
-          <span class="number">02</span>
-          <h3>Mnemonic Tools</h3>
-          <p>Use creative memory aids and visual mnemonics to remember tricky spellings through association and storytelling.</p>
-        </div>
-      </article>
+<h1>Master English<br><span>Spelling</span></h1>
 
-      <article class="feature-card">
-        <div class="photo photo-3"></div>
-        <div class="card-body">
-          <span class="number">03</span>
-          <h3>Real-Time Feedback</h3>
-          <p>Get instant corrections and clear explanations for every mistake, so your progress is tracked as your skills grow.</p>
-        </div>
-      </article>
-    </div>
-  </section>
+<p>
+Unlock your full potential with structured vocabulary,
+spelling and sentence exercises designed to improve your
+English skills with clear practice and instant results.
+</p>
 
-  <section class="rules" id="practice">
-    <div class="rules-title">
-      <span class="gold-number">01</span>
-      <h2>Master Spelling<br>Rules</h2>
-      <p>Build strong foundations by understanding the patterns behind difficult English spellings.</p>
-    </div>
+<button class="primary-btn" onclick="openLearning()">Start Learning →</button>
+</div>
 
-    <div class="rules-list">
-      <article>
-        <span class="rule-icon">K</span>
-        <div>
-          <h3>Rule of Silent Letters</h3>
-          <p>Words like <b>knife</b> and <b>doubt</b> often have silent letters. Learning these patterns helps with accurate pronunciation and spelling.</p>
-        </div>
-      </article>
-      <article>
-        <span class="rule-icon">A</span>
-        <div>
-          <h3>Common Tricky Vowels</h3>
-          <p>Pay close attention to sounds such as <b>ough</b> and <b>y</b>. They can be pronounced in multiple ways, so memory tricks can help.</p>
-        </div>
-      </article>
-      <article>
-        <span class="rule-icon">BB</span>
-        <div>
-          <h3>Double Consonants</h3>
-          <p>When a word changes form, a consonant may be doubled. For example, <b>big → bigger</b>.</p>
-        </div>
-      </article>
-    </div>
-  </section>
+<div class="hero-visual">
+<div class="circle">
+<div class="letter">A</div>
+</div>
+<div class="floating f1">Aa</div>
+<div class="floating f2">A B C</div>
+<div class="floating f3">✓</div>
+</div>
 
-  <section class="growth" id="growth">
-    <div class="center-heading">
-      <span class="small-label">PROGRESS</span>
-      <h2>Track Your Growth</h2>
-      <p>See your learning journey at a glance.</p>
-    </div>
+</section>
 
-    <div class="stats">
-      <div class="stat">
-        <strong>98%</strong>
-        <span>Spelling Accuracy</span>
-      </div>
-      <div class="stat">
-        <strong>120+</strong>
-        <span>Grammar Rules Mastered</span>
-      </div>
-      <div class="stat">
-        <strong>4.9</strong>
-        <span>Average Feedback Score</span>
-      </div>
-    </div>
-  </section>
+<section class="intro-section" id="programs">
 
-  <section class="gallery">
-    <div class="gallery-grid">
-      <article class="gallery-card large">
-        <div class="gallery-photo g1"></div>
-        <div class="gallery-text"><span>01</span><h3>Mastering Spelling</h3><p>Students using digital tools to enhance their English skills.</p></div>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-photo g2"></div>
-        <div class="gallery-text"><span>02</span><h3>The Art of Writing</h3><p>Traditional methods meet modern technology for a refined learning experience.</p></div>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-photo g3"></div>
-        <div class="gallery-text"><span>03</span><h3>Creative Practice</h3><p>Interactive exercises designed to make learning fun and effective.</p></div>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-photo g4"></div>
-        <div class="gallery-text"><span>04</span><h3>Focus on Grammar</h3><p>Clearing the path to English mastery through structured feedback.</p></div>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-photo g5"></div>
-        <div class="gallery-text"><span>05</span><h3>Spelling Bee Success</h3><p>Students preparing for competition with confidence and precision.</p></div>
-      </article>
-      <article class="gallery-card">
-        <div class="gallery-photo g6"></div>
-        <div class="gallery-text"><span>06</span><h3>Global Learning</h3><p>Mastering English from anywhere in the world with our platform.</p></div>
-      </article>
-    </div>
-  </section>
+<h2 class="section-title">Master English Learning</h2>
 
-  <section class="support" id="support">
-    <div class="support-copy">
-      <span class="small-label">NEED HELP?</span>
-      <h2>Support Center</h2>
-      <p>Whether you're a student or a teacher, we're here to help. Reach out to our team for personalized support, feedback on your spelling progress, or information about our programs.</p>
-    </div>
+<p class="section-text">
+A simple learning platform created to help students improve
+their vocabulary, spelling accuracy and English sentence writing
+through regular practice.
+</p>
 
-    <form class="support-form" id="supportForm">
-      <label>Full name *<input required type="text" placeholder="Enter your full name"></label>
-      <label>Email address *<input required type="email" placeholder="Enter your email address"></label>
-      <label>Subject *<input required type="text" placeholder="What is this regarding?"></label>
-      <label>Message *<textarea required rows="5" placeholder="Write your message here..."></textarea></label>
-      <button class="primary-btn" type="submit">Submit <span>→</span></button>
-    </form>
-  </section>
-</main>
+<div class="feature-grid">
 
-<footer>
-  <div class="brand footer-brand"><span class="brand-mark">✦</span><span>Master<br>English</span></div>
-  <p>© 2026 Master English. All rights reserved.</p>
+<article class="feature-card">
+<div class="feature-icon">📖</div>
+<h3>Important Knowledge</h3>
+<p>Learn important English words and their meanings through a simple vocabulary and dictionary system.</p>
+</article>
+
+<article class="feature-card">
+<div class="feature-icon">✍️</div>
+<h3>Creative Practice</h3>
+<p>Practice spelling and sentence writing with questions designed for students.</p>
+</article>
+
+<article class="feature-card">
+<div class="feature-icon">🎯</div>
+<h3>Accuracy Practice</h3>
+<p>Check your answers and understand your progress using percentage-based results.</p>
+</article>
+
+</div>
+
+</section>
+
+<section class="growth" id="growth">
+
+<div class="growth-container">
+
+<h2 class="growth-title">Track Your Growth</h2>
+
+<div class="growth-grid">
+
+<article class="growth-card">
+<div class="growth-number" id="growthWords">0%</div>
+<h3>Important Words</h3>
+</article>
+
+<article class="growth-card">
+<div class="growth-number" id="growthSpelling">0%</div>
+<h3>Word Practice</h3>
+</article>
+
+<article class="growth-card">
+<div class="growth-number" id="growthSentence">0%</div>
+<h3>Sentence Practice</h3>
+</article>
+
+</div>
+
+</div>
+
+</section>
+
+<footer id="about">
+
+<div class="footer-container">
+
+<div>
+<h2 class="footer-title">Master English</h2>
+<p class="footer-text">
+Master English is designed as a student-focused learning
+platform for improving vocabulary, spelling and sentence
+writing skills through simple and structured practice.
+</p>
+</div>
+
+<div>
+<h2 class="footer-title">Introduction</h2>
+<p class="footer-text">
+The Founder of this website is:
+</p>
+
+<div class="founder">
+<strong>Vansh Umredkar</strong><br>
+I am a Class 12th Commerce Student.
+</div>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Master English. All rights reserved.
+</div>
+
 </footer>
 
-<script src="script.js"></script>
+</div>
+
+
+<div id="learningPage" class="learning-page">
+
+<header>
+<nav class="navbar">
+<div class="logo">
+<div class="logo-icon">✦</div>
+<div>Master<br>English</div>
+</div>
+
+<div class="nav-links">
+<a href="#" onclick="showHome()">Home</a>
+<a href="#vocabulary">Vocabulary</a>
+<a href="#spelling">Spelling</a>
+<a href="#sentence">Sentence</a>
+</div>
+
+<div class="nav-actions">
+<button class="nav-btn">🔔</button>
+</div>
+</nav>
+</header>
+
+<section class="learning-header">
+
+<button class="back-btn" onclick="showHome()">← Back to Home</button>
+
+<h1>Start Learning</h1>
+
+<p>
+Choose a learning program and begin improving your English.
+</p>
+
+</section>
+
+<section class="learning-grid">
+
+<article class="learning-card" id="vocabulary">
+
+<div class="learning-icon">📚</div>
+
+<h2>Vocabulary & Dictionary</h2>
+
+<p>
+Learn and search important English words with their simple meanings.
+The vocabulary section contains a growing collection of important words.
+</p>
+
+<button class="card-btn" onclick="openPractice('vocabularyPractice')">
+Open Vocabulary
+</button>
+
+</article>
+
+<article class="learning-card" id="spelling">
+
+<div class="learning-icon">🔤</div>
+
+<h2>Spelling Practice</h2>
+
+<p>
+Listen to an English word and type the correct spelling.
+Your answer will be checked automatically and your percentage will be calculated.
+</p>
+
+<button class="card-btn" onclick="openPractice('spellingPractice')">
+Start Practice
+</button>
+
+</article>
+
+<article class="learning-card" id="sentence">
+
+<div class="learning-icon">📝</div>
+
+<h2>Sentence Practice</h2>
+
+<p>
+Listen to an English sentence and write the sentence correctly.
+Your result will be calculated according to your correct answers.
+</p>
+
+<button class="card-btn" onclick="openPractice('sentencePractice')">
+Start Practice
+</button>
+
+</article>
+
+</section>
+
+
+<section class="practice-area" id="vocabularyPractice">
+
+<div class="practice-box">
+
+<h2>Vocabulary & Dictionary</h2>
+
+<p>
+Search important English words and learn their meanings.
+</p>
+
+<div class="search-box">
+<input type="text" id="wordSearch" placeholder="Search an English word..." oninput="searchWords()">
+</div>
+
+<div class="word-list" id="wordList"></div>
+
+</div>
+
+</section>
+
+
+<section class="practice-area" id="spellingPractice">
+
+<div class="practice-box">
+
+<h2>Spelling Practice</h2>
+
+<p>
+Listen carefully to the word and type its correct spelling.
+The voice is played at a medium speed.
+</p>
+
+<button class="primary-btn" onclick="speakSpelling()">🔊 Play Word</button>
+
+<div class="question" id="spellingQuestion">
+Listen to the word and type the spelling.
+</div>
+
+<input class="answer-input" id="spellingAnswer" placeholder="Type the spelling here">
+
+<br><br>
+
+<button class="card-btn" onclick="checkSpelling()">Check Answer</button>
+
+<div class="answer-result" id="spellingResult"></div>
+
+<div class="score-box" id="spellingScore"></div>
+
+</div>
+
+</section>
+
+
+<section class="practice-area" id="sentencePractice">
+
+<div class="practice-box">
+
+<h2>Sentence Practice</h2>
+
+<p>
+Listen to the sentence and type what you hear in English.
+</p>
+
+<button class="primary-btn" onclick="speakSentence()">🔊 Play Sentence</button>
+
+<div class="question" id="sentenceQuestion">
+Listen carefully and write the sentence.
+</div>
+
+<input class="answer-input" id="sentenceAnswer" placeholder="Write the sentence here">
+
+<br><br>
+
+<button class="card-btn" onclick="checkSentence()">Check Answer</button>
+
+<div class="answer-result" id="sentenceResult"></div>
+
+<div class="score-box" id="sentenceScore"></div>
+
+</div>
+
+</section>
+
+<footer>
+
+<div class="footer-container">
+
+<div>
+<h2 class="footer-title">Master English</h2>
+<p class="footer-text">
+Learn vocabulary, practise spelling and improve English sentence writing.
+</p>
+</div>
+
+<div>
+<h2 class="footer-title">Founder</h2>
+<p class="founder">
+<strong>Vansh Umredkar</strong><br>
+Class 12th Commerce Student
+</p>
+</div>
+
+</div>
+
+<div class="footer-bottom">
+© 2026 Master English. All rights reserved.
+</div>
+
+</footer>
+
+</div>
+
+
+<script>
+const words=[
+{word:"Accurate",meaning:"Correct and exact"},
+{word:"Beautiful",meaning:"Very pleasing to see"},
+{word:"Confident",meaning:"Feeling sure about yourself"},
+{word:"Creative",meaning:"Able to create new ideas"},
+{word:"Important",meaning:"Having great value or meaning"},
+{word:"Knowledge",meaning:"Information and understanding"},
+{word:"Practice",meaning:"Doing something regularly to improve"},
+{word:"Successful",meaning:"Achieving a desired result"},
+{word:"Education",meaning:"The process of learning"},
+{word:"Environment",meaning:"The surroundings in which we live"},
+{word:"Experience",meaning:"Knowledge gained through doing something"},
+{word:"Communication",meaning:"Sharing information with others"},
+{word:"Opportunity",meaning:"A suitable chance to do something"},
+{word:"Responsibility",meaning:"A duty that you are expected to perform"},
+{word:"Development",meaning:"The process of growing or improving"},
+{word:"Different",meaning:"Not the same"},
+{word:"Language",meaning:"A system used for communication"},
+{word:"Successful",meaning:"Having achieved a goal"},
+{word:"Attention",meaning:"Careful notice or concentration"},
+{word:"Achievement",meaning:"Something successfully completed"}
+];
+
+const spellingQuestions=[
+"beautiful",
+"knowledge",
+"important",
+"successful",
+"environment",
+"experience",
+"communication",
+"opportunity",
+"responsibility",
+"development"
+];
+
+const sentenceQuestions=[
+"I am learning English every day.",
+"Practice makes your English better.",
+"Knowledge is important for every student.",
+"I want to improve my spelling.",
+"Reading helps us learn new words.",
+"Students should practise regularly.",
+"English is an important language.",
+"I write sentences carefully.",
+"Good practice builds confidence.",
+"Learning new words is useful."
+];
+
+let spellingIndex=0;
+let sentenceIndex=0;
+let spellingCorrect=0;
+let sentenceCorrect=0;
+let spellingAnswered=0;
+let sentenceAnswered=0;
+
+function openLearning(){
+    document.getElementById("homePage").style.display="none";
+    document.getElementById("learningPage").style.display="block";
+    window.scrollTo(0,0);
+    history.pushState(null,"","#learning");
+}
+
+function showHome(){
+    document.getElementById("learningPage").style.display="none";
+    document.getElementById("homePage").style.display="block";
+    window.scrollTo(0,0);
+    history.pushState(null,"","#home");
+}
+
+function openPractice(id){
+    document.querySelectorAll(".practice-area").forEach(function(area){
+        area.style.display="none";
+    });
+
+    const selected=document.getElementById(id);
+
+    if(selected){
+        selected.style.display="block";
+        selected.scrollIntoView({behavior:"smooth",block:"start"});
+    }
+
+    if(id==="spellingPractice"){
+        prepareSpelling();
+    }
+
+    if(id==="sentencePractice"){
+        prepareSentence();
+    }
+
+    if(id==="vocabularyPractice"){
+        renderWords(words);
+    }
+}
+
+function renderWords(list){
+    const container=document.getElementById("wordList");
+
+    container.innerHTML="";
+
+    list.forEach(function(item){
+        const div=document.createElement("div");
+        div.className="word-item";
+        div.innerHTML="<strong>"+item.word+"</strong><span>"+item.meaning+"</span>";
+        container.appendChild(div);
+    });
+}
+
+function searchWords(){
+    const value=document.getElementById("wordSearch").value.toLowerCase();
+
+    const filtered=words.filter(function(item){
+        return item.word.toLowerCase().includes(value) ||
+               item.meaning.toLowerCase().includes(value);
+    });
+
+    renderWords(filtered);
+}
+
+function getIndianVoice(){
+    const voices=window.speechSynthesis.getVoices();
+
+    let voice=voices.find(function(v){
+        return v.lang==="en-IN" && /male|boy|man/i.test(v.name);
+    });
+
+    if(!voice){
+        voice=voices.find(function(v){
+            return v.lang==="en-IN";
+        });
+    }
+
+    if(!voice){
+        voice=voices.find(function(v){
+            return v.lang.startsWith("en-IN");
+        });
+    }
+
+    return voice || null;
+}
+
+function speakText(text){
+    window.speechSynthesis.cancel();
+
+    const utterance=new SpeechSynthesisUtterance(text);
+    const voice=getIndianVoice();
+
+    if(voice){
+        utterance.voice=voice;
+    }
+
+    utterance.lang="en-IN";
+    utterance.rate=.82;
+    utterance.pitch=.95;
+    utterance.volume=1;
+
+    window.speechSynthesis.speak(utterance);
+}
+
+function speakSpelling(){
+    speakText(spellingQuestions[spellingIndex]);
+}
+
+function prepareSpelling(){
+    document.getElementById("spellingAnswer").value="";
+    document.getElementById("spellingResult").style.display="none";
+    document.getElementById("spellingQuestion").textContent="Listen to the word and type the spelling.";
+    document.getElementById("spellingScore").textContent=
+        spellingAnswered>0
+        ? "Current Score: "+Math.round((spellingCorrect/spellingAnswered)*100)+"%"
+        : "";
+}
+
+function checkSpelling(){
+    const answer=document.getElementById("spellingAnswer").value.trim().toLowerCase();
+    const correct=spellingQuestions[spellingIndex].toLowerCase();
+    const result=document.getElementById("spellingResult");
+
+    if(!answer){
+        result.className="answer-result wrong";
+        result.textContent="Please enter an answer.";
+        result.style.display="block";
+        return;
+    }
+
+    spellingAnswered++;
+
+    if(answer===correct){
+        spellingCorrect++;
+        result.className="answer-result correct";
+        result.textContent="Correct! You earned 10% for this correct answer.";
+    }else{
+        result.className="answer-result wrong";
+        result.textContent="Incorrect. The correct spelling is: "+correct;
+    }
+
+    result.style.display="block";
+
+    const percentage=Math.round((spellingCorrect/spellingAnswered)*100);
+
+    document.getElementById("spellingScore").textContent=
+        "Your Spelling Practice Result: "+percentage+"%";
+
+    document.getElementById("growthSpelling").textContent=percentage+"%";
+
+    spellingIndex++;
+
+    if(spellingIndex>=spellingQuestions.length){
+        spellingIndex=0;
+    }
+
+    setTimeout(function(){
+        document.getElementById("spellingAnswer").value="";
+        document.getElementById("spellingQuestion").textContent=
+            "Question "+(spellingIndex+1)+" of "+spellingQuestions.length+
+            ": Listen and type the spelling.";
+    },900);
+}
+
+function speakSentence(){
+    speakText(sentenceQuestions[sentenceIndex]);
+}
+
+function prepareSentence(){
+    document.getElementById("sentenceAnswer").value="";
+    document.getElementById("sentenceResult").style.display="none";
+    document.getElementById("sentenceQuestion").textContent=
+        "Listen carefully and write the sentence.";
+
+    document.getElementById("sentenceScore").textContent=
+        sentenceAnswered>0
+        ? "Current Score: "+Math.round((sentenceCorrect/sentenceAnswered)*100)+"%"
+        : "";
+}
+
+function checkSentence(){
+    const answer=document.getElementById("sentenceAnswer").value.trim();
+    const correct=sentenceQuestions[sentenceIndex];
+    const result=document.getElementById("sentenceResult");
+
+    if(!answer){
+        result.className="answer-result wrong";
+        result.textContent="Please enter an answer.";
+        result.style.display="block";
+        return;
+    }
+
+    sentenceAnswered++;
+
+    const normalize=function(text){
+        return text
+        .toLowerCase()
+        .replace(/[.,!?;:]/g,"")
+        .replace(/\s+/g," ")
+        .trim();
+    };
+
+    if(normalize(answer)===normalize(correct)){
+        sentenceCorrect++;
+        result.className="answer-result correct";
+        result.textContent="Correct! You earned 10% for this correct answer.";
+    }else{
+        result.className="answer-result wrong";
+        result.textContent="Incorrect. Correct sentence: "+correct;
+    }
+
+    result.style.display="block";
+
+    const percentage=Math.round((sentenceCorrect/sentenceAnswered)*100);
+
+    document.getElementById("sentenceScore").textContent=
+        "Your Sentence Practice Result: "+percentage+"%";
+
+    document.getElementById("growthSentence").textContent=percentage+"%";
+
+    sentenceIndex++;
+
+    if(sentenceIndex>=sentenceQuestions.length){
+        sentenceIndex=0;
+    }
+
+    setTimeout(function(){
+        document.getElementById("sentenceAnswer").value="";
+        document.getElementById("sentenceQuestion").textContent=
+            "Question "+(sentenceIndex+1)+" of "+sentenceQuestions.length+
+            ": Listen and write the sentence.";
+    },900);
+}
+
+function updateHomeGrowth(){
+    document.getElementById("growthWords").textContent="0%";
+
+    const spellingPercentage=
+        spellingAnswered>0
+        ? Math.round((spellingCorrect/spellingAnswered)*100)
+        : 0;
+
+    const sentencePercentage=
+        sentenceAnswered>0
+        ? Math.round((sentenceCorrect/sentenceAnswered)*100)
+        : 0;
+
+    document.getElementById("growthSpelling").textContent=spellingPercentage+"%";
+    document.getElementById("growthSentence").textContent=sentencePercentage+"%";
+}
+
+window.addEventListener("popstate",function(){
+    if(location.hash==="#learning"){
+        openLearning();
+    }else{
+        showHome();
+    }
+});
+
+window.speechSynthesis.onvoiceschanged=function(){
+    getIndianVoice();
+};
+
+renderWords(words);
+updateHomeGrowth();
+</script>
+
 </body>
 </html>
