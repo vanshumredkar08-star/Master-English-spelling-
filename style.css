@@ -1,0 +1,270 @@
+/* ==============================
+   MASTER ENGLISH - MAIN STYLE
+   ============================== */
+
+:root {
+    --gold: #c99518;
+    --gold-dark: #9f7610;
+    --cream: #fbf8ef;
+    --white: #ffffff;
+    --text: #333333;
+    --light-gold: #f5e8bd;
+    --border: #e5d5a5;
+    --shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: var(--cream);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Navigation */
+
+nav {
+    background: var(--white);
+    padding: 16px 6%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.06);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.logo {
+    color: var(--gold-dark);
+    font-size: 24px;
+    font-weight: bold;
+}
+
+nav a {
+    color: var(--text);
+    text-decoration: none;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+nav a:hover {
+    color: var(--gold);
+}
+
+/* Main Container */
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* Hero */
+
+.hero {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(
+        135deg,
+        #fbf8ef,
+        #f5e8bd
+    );
+}
+
+.hero h1 {
+    font-size: 42px;
+    color: var(--gold-dark);
+    margin-bottom: 15px;
+}
+
+.hero p {
+    font-size: 18px;
+    margin-bottom: 25px;
+}
+
+/* Buttons */
+
+.btn {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--white);
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: var(--gold-dark);
+    transform: translateY(-2px);
+}
+
+/* Sections */
+
+section {
+    padding: 55px 0;
+}
+
+section h2 {
+    text-align: center;
+    color: var(--gold-dark);
+    font-size: 30px;
+    margin-bottom: 30px;
+}
+
+section p {
+    margin-bottom: 15px;
+}
+
+/* Cards */
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.card {
+    background: var(--white);
+    padding: 28px;
+    border-radius: 14px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+.card h3 {
+    color: var(--gold-dark);
+    margin-bottom: 10px;
+}
+
+.card p {
+    color: #555;
+}
+
+/* Learning Page */
+
+.learning-page {
+    min-height: 70vh;
+    padding: 60px 20px;
+}
+
+.learning-page h1 {
+    text-align: center;
+    color: var(--gold-dark);
+    font-size: 38px;
+    margin-bottom: 20px;
+}
+
+.learning-page > p {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 35px;
+}
+
+/* Practice Box */
+
+.practice-box {
+    background: var(--white);
+    max-width: 800px;
+    margin: 25px auto;
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow);
+}
+
+.practice-box h2 {
+    color: var(--gold-dark);
+    margin-bottom: 15px;
+}
+
+/* Word List */
+
+.word-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.word {
+    background: var(--light-gold);
+    padding: 15px;
+    border-radius: 8px;
+    font-weight: bold;
+}
+
+/* Footer */
+
+footer {
+    background: #2f2a1f;
+    color: var(--white);
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 40px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+/* General Links */
+
+a {
+    color: var(--gold-dark);
+}
+
+a:hover {
+    color: var(--gold);
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+
+    nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    nav a {
+        margin-left: 8px;
+        margin-right: 8px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .learning-page h1 {
+        font-size: 30px;
+    }
+
+    section h2 {
+        font-size: 25px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .word-list {
+        grid-template-columns: 1fr;
+    }
+}
