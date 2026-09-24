@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://vanshumredkar08-star.github.io/Master-English-spelling-//sitemap.xml
